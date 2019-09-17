@@ -1,8 +1,8 @@
 {
-  "name": "jobserver-exporter",
+  "name": "@sparkle/jobserver-exporter",
   "version": "1.0.1",
   "description": "A prometheus exporter for Apache Spark jobserver",
-  "main": "server.js",
+  "main": "./src/server.js",
   "dependencies": {
     "axios": "^0.19.0",
     "express": "^4.17.1",
@@ -10,23 +10,28 @@
     "yargs": "^14.0.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "eslint": "^6.2.2",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^6.2.0",
+    "sinon": "^7.4.2"
   },
   "scripts": {
     "eslint": "npx eslint --report-unused-disable-directives .",
     "eslint:fix": "npm run eslint -- --fix",
-    "build": "npm run eslint",
-    "start": "node server.js"
+    "test": "mocha src/test/**/*.js",
+    "build": "npm run eslint && npm run test",
+    "start": "node src/server.js"
   },
-  "author": "86400",
+  "author": "omahoco",
   "license": "ISC",
   "bin": {
-    "spark-jobserver-exporter": "./server.js"
+    "spark-jobserver-exporter": "./src/server.js"
   }
 }
