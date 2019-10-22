@@ -1,4 +1,4 @@
-# Prometheus Exporter For Apache Jobserver
+# Prometheus Exporter For Apache Spark Jobserver
 
 Provides an endpoint to expose Jobserver metrics to Prometheus.
 
