@@ -23,6 +23,11 @@ module.exports = class JobServerCollector {
     this.processedJobIds = [];
   }
 
+  async start(scrapeIntervalMs) {
+    await this.collectMetrics();
+    setInterval(() => this.collectMetrics(), scrapeIntervalMs);
+  }
+
   async collectMetrics() {
     try {
       const jobs = await this.jobserver.getJobs();

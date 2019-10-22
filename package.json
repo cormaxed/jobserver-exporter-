@@ -1,6 +1,6 @@
 {
-  "name": "@sparkle/jobserver-exporter",
-  "version": "1.0.1",
+  "name": "jobserver-exporter",
+  "version": "1.0.2",
   "description": "A prometheus exporter for Apache Spark jobserver",
   "main": "./src/server.js",
   "dependencies": {

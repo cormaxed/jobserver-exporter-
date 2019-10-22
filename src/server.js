@@ -33,9 +33,8 @@ const { argv } = parseArgs();
 const jobserver = new Jobserver(argv.scrape_uri);
 const jobServerCollector = new JobserverCollector(prom, jobserver, argv.from_timestamp);
 
-// Schedule metric collection
-jobServerCollector.collectMetrics();
-setInterval(jobServerCollector.collectMetrics, argv.scrape_interval * 1000);
+// Start scheduled metric collection
+jobServerCollector.start(argv.scrape_interval * 1000);
 
 // Expose the metrics endpoint
 const app = express();
